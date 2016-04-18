@@ -5,7 +5,7 @@ function injectForm(firstName,lastName){
 }
 
 function registerEventListeners() {
-    $( "body" ).on( "click", "button", function( event ) {
+    $("#contentContainer").on( "click", "button", function( event ) {
         activeClass = $(this).attr("class");
         switch (activeClass) {
             case "submitName":
@@ -88,12 +88,11 @@ function randomUsers(){
 }
 
 function messaging(){
-    $(".messaging").toggleClass( "hide slideInLeft" );
-    $(".messaging").html( "Weeeeeeeeeeeeeeeeeeeeeeeeeeee!" );
+    $(".messaging").toggleClass( "hide slideInLeft" ).html("Weeeeeeeeeeeeeeeeeeeeeeeeeeee!");
     window.setTimeout(function(){
         $(".messaging").toggleClass( "slideInLeft slideOutRight" );
     }, 2000);
-    window.setTimeout(function hideMessages() {
+    window.setTimeout(function(){
         $(".messaging").toggleClass( "hide slideOutRight" );
     }, 3000); 
 }
