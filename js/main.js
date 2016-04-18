@@ -6,17 +6,29 @@ function injectForm(firstName,lastName){
 }
 
 function registerEventListeners() {
-    $("body").on("click",".submitName", submitValues);
-    $("body").on("click",".resetName", reset);
-
-    $("body").on("click",".addEntry",function(){
-        injectForm();
+    $( "body" ).on( "click", "button", function( event ) {
+        activeClass = $(this).attr("class");
+        switch (activeClass) {
+            case "submitName":
+                submitValues();
+                break;
+            case "resetName":
+                reset();
+                break;
+            case "addEntry":
+                injectForm();
+                break;
+            case "saveEntries":
+                setLocalStorage(messaging);
+                break;
+            case "deleteEntries":
+                deleteEntries();
+                break;
+            case "randomUser":
+                randomUsers();
+                break
+        }
     });
-    $("body").on("click",".saveEntries",function(){
-        setLocalStorage(messaging);
-    });
-    $("body").on("click",".deleteEntries",deleteEntries);
-    $("body").on("click",".randomUser",randomUsers);
 }
 
 function submitValues(){
